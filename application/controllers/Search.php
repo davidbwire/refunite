@@ -7,18 +7,19 @@ class Search extends CI_Controller {
 	public function index(){
 		$this->load->view('search.php');
 	}
-	public function search(){
-		if ($_SERVER['HTTP_REQUEST']="POST"){
+	public function getAll(){
+		//if ($_SERVER['HTTP_REQUEST']="POST"){
 			//get the data from the Api through the model
-			$data['results']=$this-> model->getdata($country,$year,$town);
+			$this->load->model('lost_people_model');
+			$data['results']=$this->lost_people_model->getAll();
 			//then get the data to the database
-			
 			// from this point then load to the view
 			$this->load->view('search.php',$data);
-			
-		}
-		
-		$this->load->view('search.php');
+	}
+	public function getUser($id){
+		$this->load->model('lost_people_model');
+		$data['user']=$this->lost_people_model->getUser($id);
+		$this->load->view('search.php',$data);
 	}
 	
 }

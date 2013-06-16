@@ -7,7 +7,7 @@
  */
 class lost_people_model extends CI_Model{
     
-    const TABLE = 'user';
+    const TABLE = 'lost_people';
     /*
      * @param array $data
      */

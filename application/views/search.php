@@ -1,14 +1,15 @@
     <!DOCTYPE html>
     <html>
     <head>
-    <title>Bootstrap 101 Template</title>
+    <title>Refunite Hack</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
    
      <link rel="stylesheet" type="text/css" media="screen" href="<?php echo base_url(); ?>assets/css/bootstrap.css" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" media="all" href="<?php echo base_url(); ?>assets/css/bootstrap-responsive.css"/>
-        
-         <script src="http://code.jquery.com/jquery.js"></script>
+  
     <script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
+     <script src="<?php echo base_url(); ?>assets/js/jquery-1.9.1.js"></script>
+    <script src="<?php echo base_url(); ?>assets/js/refunite.js"></script>
     </head>
     <body>
      <div class="navbar navbar-inverse navbar-fixed-top">
@@ -19,7 +20,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="brand" href="#">Project name</a>
+          <a class="brand" href="http://localhost/refunite/index.php/search">Intelligent Search</a>
           <div class="nav-collapse collapse">
          
           </div><!--/.nav-collapse -->
@@ -34,29 +35,90 @@
       	<h3>Welcome to Group search</h3>
       	<p></p>
       	<form class="form-inline">
-      		    <input type="text" placeholder="">
-      		        <input type="text" placeholder="">
-      		            <input type="text" placeholder="">
-	
+      		<div class="row">
+      		<div class="span3">
+      			<label>Country of origin</label>
+      			 <input type="text" placeholder="">
+      		      
+      		</div>
+      		<div class ="span3">
+      			<label>Last  seen</label>
+      			 <input type="text" placeholder="">
+      		     
+      		</div>
+      		<div class="span3">
+      			<label>Year lost</label>
+      			 <input type="text" placeholder="">
+      		      
+      		</div>
+      		   
+	</div>
 		</form
-        
-        <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-        <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+       
+        <p><a href="http://localhost/refunite/index.php/search/getAll" class="btn btn-primary btn-large">Search &raquo;</a></p>
        
       </div>
 
       <!-- Example row of columns -->
       <div class="row">
         <div class="span9">
-          <h2>Heading</h2>
-          <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. </p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
+        	<table class="table table-striped">
+        	<?php	if(isset($user)){?>
+        	<?php foreach ($user as $result) {?>
+			    <tr><td><a href="http://localhost/refunite/index.php/search/getUser/<?php echo $result->id;  ?>"><?php echo $result->fname; ?></a></td><td><?php echo $result->lname; ?></td><td><?php echo $result->country_of_origin;?></td><td><?php echo $result->last_sighting;?></td>
+			    	<td><?php echo $result->year_separated; ?></td>
+			    	
+			    </tr>
+    		<?php }} ?>
+    		</table>
+        	
+        	<table class="table table-striped">
+        	<?php	if(isset($results)){?>
+        	<?php foreach ($results as $result) {?>
+			    <tr><td><a href="http://localhost/refunite/index.php/search/getUser/<?php echo $result->id;  ?>"><?php echo $result->fname; ?></a></td><td><?php echo $result->lname; ?></td><td><?php echo $result->country_of_origin;?></td><td><?php echo $result->last_sighting;?></td>
+			    	<td><?php echo $result->year_separated; ?></td>
+			    	
+			    </tr>
+    		<?php }} ?>
+    		</table>
+    		
+    		<li id="more"><a href="#">Apply more Filters</a></li>
+    		<div class="span9" id="filters">
+    			<div class="row">
+    				<form class="form-inline">
+    				<div class="span2">
+    					<label>name</label>
+      			 <input type="text" placeholder="">
+    					
+    				</div>
+    				<div class="span2">
+    					<label>apperance</label>
+      			 <input type="text" placeholder="">
+    					
+    				</div>
+    				<div class="span2">
+    					<label>age</label>
+      			 <input type="text" placeholder="">
+    					
+    				</div>
+    				
+    				</div>
+    				<div class="span2">
+    				<p><a href="#" class="btn btn-primary btn-small">Search &raquo;</a></p>
+    				</div>
+    			
+    			</div>
+    			 
+    			</form>
         </div>
         
         <div class="span3">
-          <h2>Heading</h2>
-          <p>Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-          <p><a class="btn" href="#">View details &raquo;</a></p>
+          <h2>Team up with</h2>
+          <ul>
+         <li class="team"><a href="#">Andrew kimani</a></li>
+         <li class="team"><a href="#">John Doe</a></li>
+         <li class="team"><a href="#">Mary denver</a></li>
+         </ul>
         </div>
       </div>
 

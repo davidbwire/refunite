@@ -17,7 +17,7 @@ class refunite_api_connect_model extends CI_Model {
     private $_uri = 'http://api.ru.istykker.dk/';
     private $_requestMethod = 'GET';
     private $_user = 'hackathon';
-    private $_password = '473ba3ff6162c[masked]bcefa7de95e2ef266';
+    private $_password = '473ba3ff6162c6064479825bcefa7de95e2ef266';
     
     private $_response;
     private $_nonce;
